@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-k8s-api-deployment
+  labels:
+    app: api10
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api10
+  template:
+    metadata:
+      labels:
+        app: api10
+    spec:
+      containers:
+        - name: go-k8s-api
+          image: go-k8s-api:1.0
+          ports:
+            - containerPort: 8080
